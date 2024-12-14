@@ -1,13 +1,571 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --primary-red: #B60000;
+  --primary-yellow: #FFDE59;
+  --secondary-blue: #007BFF;
+  --secondary-gray: #6C757D;
+  --light-gray: #F8F9FA;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  min-height: 100vh; /* Ensures the minimum height is full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Allows the main content to expand and push the footer down */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #B60000;
+  color: white;
+}
+
+nav a, .LT, .button {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover, .LT:hover, .button:hover {
+  color: var(--secondary-blue);
+  background-color: var(--light-gray);
+}
+
+nav a:active, .LT:active, .button:active {
+  color: var(--secondary-gray);
+  background-color: var(--primary-yellow);
+}
+
+a, .button {
+  color: var(--secondary-blue);
+  background-color: transparent;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 2px solid var(--secondary-blue);
+}
+
+a:hover, .button:hover {
+  color: white;
+  background-color: var(--secondary-blue);
+  text-decoration: none;
+}
+
+a:active, .button:active {
+  color: var(--primary-yellow);
+  background-color: var(--secondary-gray);
+}
+
+header {
+  background-image: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-yellow) 100%);
+}
+
+footer {
+  background-image: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-red) 100%);
+}
+
+.h2_expandable {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.h2_expandable:hover {
+  background-color: var(--light-gray);
+}
+
+
+.h2_expandable:active {
+  background-color: var(--secondary-gray);
+}
+
+.ftm_title, .tvr_title {
+  color: var(--secondary-blue);
+}
+
+/* Set base font size and line height */
+html {
+  font-size: 100%; /* equivalent to 16px */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Responsive Typography */
+h1, h2, h3, h4, p, a, .button {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem; /* Base size for text */
+}
+
+h1 {
+  font-size: 2em; /* 2 times the base size */
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p, a, .button {
+  font-size: 1rem; /* Same as the base, for consistency */
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) {
+  html {
+      font-size: 112.5%; /* 18px */
+  }
+
+  h1 {
+      font-size: 2.25em;
+  }
+
+  h2 {
+      font-size: 2em;
+  }
+
+  h3 {
+      font-size: 1.75em;
+  }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 480px) {
+  html {
+      font-size: 87.5%; /* 14px */
+  }
+
+  h1 {
+      font-size: 2em;
+  }
+
+  h2 {
+      font-size: 1.75em;
+  }
+
+  h3 {
+      font-size: 1.5em;
+  }
+}
+
+/* Additional Styles for headers, nav, and other elements */
+header, footer {
+  padding: 20px;
+  text-align: center;
+  background-image: linear-gradient(to right, var(--primary-red), var(--primary-yellow));
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+h1, h2, h3, h4, p, a, .button {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem; /* Base size for text */
+}
+
+h1 {
+  font-size: 2em; /* 2 times the base size */
+}
+
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p, a, .button {
+  font-size: 1rem; /* Same as the base, for consistency */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #FFF; /* Ensuring a clean background */
+}
+
+header, nav, main, footer {
+  padding: 20px;
+}
+
+header {
+  background-color: #B60000;
+  text-align: center;
+}
+
+nav {
+  background-color: #FFDE59;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: #B60000;
+  text-decoration: none;
+}
+
+main {
+  text-align: center; /* Centralizing all content within main */
+}
+
+.cc {
+  margin: 20px 0; /* Reducing gap by controlling top and bottom margins */
+}
+
+.stm, .LT {
+  display: block;
+  margin: 20px auto; /* Standardizing margin for all block elements like images and links */
+}
+
+.ab{
+  text-align: center;
+}
+.ab_desc {
+  width: 80%; /* Making paragraph narrower for better readability */
+  margin: 0 auto 20px; /* Adding space below the paragraph */
+  text-align: center;
+}
+
+
+footer {
+  background-color: #B60000;
+  text-align: center;
+}
+
+.title{
+  color: #FFDE59;
+  text-shadow: 
+    -1px -1px 0 black,  /* Top-left */
+     1px -1px 0 black,  /* Top-right */
+    -1px  1px 0 black,  /* Bottom-left */
+     1px  1px 0 black;  /* Bottom-right */
+}
+
+.sub-title{
+  color: #FFDE59;
+  text-shadow: 
+    -1px -1px 0 black,  /* Top-left */
+     1px -1px 0 black,  /* Top-right */
+    -1px  1px 0 black,  /* Bottom-left */
+     1px  1px 0 black;  /* Bottom-right */
+}
+
+.cr{
+  color: #FFDE59;
+  text-shadow: 
+    -1px -1px 0 black,  /* Top-left */
+     1px -1px 0 black,  /* Top-right */
+    -1px  1px 0 black,  /* Bottom-left */
+     1px  1px 0 black;  /* Bottom-right */
+}
+
+.pw{
+  text-align: center;
+}
+
+.s_pers{
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.ftm_title {
+  text-align: center;
+  color: black;      /* Light grey text color */
+}
+
+.ftm_cover{
+  height: 500px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.FTM_desc{
+  text-align: center;
+}
+
+.tvr_title {
+  text-align: center;
+  color: black;      /* Light grey text color */
+}
+
+.tvr_cover{
+  height: 500px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.TVR_desc{
+  text-align: center;
+}
+
+.mentioned_poems{
+  text-align: center;
+}
+
+.Amelia, .Fire, .WHO {
+  font-family: 'Courier New', Courier, monospace; /* Monospace to mimic typewriter style */
+  margin: 20px auto;
+  white-space: pre-wrap; /* Maintains formatting and spacing */
+  font-size: 16px;
+  color: #333;
+  width: 80%; /* Adjust width as necessary */
+  line-height: 1.5; /* Adjust line spacing */
+}
+
+.stm{
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.cc{
+  text-align: center;
+}
+
+
+
+.LT {
+  color: #0e9f6e;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 12px;
+  margin-top: 10px; /* Minimal space above the link for separation */
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  display: inline-block; /* Ensures the link doesn't stretch full width and respects padding */
+}
+
+.LT:hover {
+  color: #3cb371;
+  text-decoration: underline;
+  background-color: #e6e6e6; /* Slightly darker background on hover */
+}
+
+.pp{
+  text-align: center;
+}
+
+.socialcc {
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.cc_desc{
+  text-align: center;
+}
+
+.cc_t{
+  text-align: center;
+}
+
+.web_calc_pic{
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.web_calc_desc{
+  text-align: center;
+}
+
+.web_calc_t{
+  text-align: center;
+}
+
+.port_t{
+  text-align: center;
+}
+
+.port_img{
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.port_desc{
+  text-align: center;
+}
+
+.cc_img{
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  html {
+      font-size: 112.5%; /* 18px */
+  }
+
+  h1 {
+      font-size: 2.25em;
+  }
+
+  h2 {
+      font-size: 2em;
+  }
+
+  h3 {
+      font-size: 1.75em;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+      font-size: 87.5%; /* 14px */
+  }
+
+  h1 {
+      font-size: 2em;
+  }
+
+  h2 {
+      font-size: 1.75em;
+  }
+
+  h3 {
+      font-size: 1.5em;
+  }
+}
+
+header, footer {
+  padding: 20px;
+  text-align: center;
+  background-image: linear-gradient(to right, var(--primary-red), var(--primary-yellow));
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-red);
+}
+
+footer {
+  background-color: #B60000;
+}
+
+.stm, .LT, .s_pers, .ftm_cover, .tvr_cover, .web_calc_pic, .port_img, .cc_img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Transition effects for expandable sections */
+.expandable-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Class added via JavaScript when section is expanded */
+.expanded {
+  max-height: 1000px; /* Adjust as necessary, should be large enough to contain the content */
+  padding: 20px; /* or any other appropriate padding */
+  opacity: 1; /* Make content fully visible when expanded */
+}
+
+/* Apply Arial font to all collapsible content descriptions */
+.collapsible-content {
+  font-family: Arial, sans-serif;
+}
+
+/* Alternatively, apply it directly to existing classes if a shared class is not suitable */
+.FTM_desc, .TVR_desc, .pre {
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  height: 100%; /* Full height of the viewport */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Stacks the children elements (like header, main, footer) in a column */
+}
+
+body {
+  min-height: 100vh; /* Minimum height is full viewport height */
+  display: flex;
+  flex-direction: column; /* Ensures content is organized in a column */
+}
+
+main {
+  flex: 1; /* Takes up all available space */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #B60000;
+  color: white;
 }
